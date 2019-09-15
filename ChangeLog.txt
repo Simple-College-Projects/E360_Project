@@ -1,0 +1,11 @@
+Admin Forms
+=> Unwanted items removed
+=> Path changed for 'Edit' Pages
+Manager Forms
+=>Unwanted items removed
+=Path changed for 'Edit' Pages
+
+
+To-do
+=>Show Name and photo of the manager that currently logged in
+=>Redirect to certain pages
