@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>AdminLTE | Simple Tables</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- bootstrap 3.0.2 -->
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+       <link href="../static/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+       <link href="../static/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+       <link href="../static/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+       <script src="../static/jquery.min.js"></script>
+       <link rel="stylesheet" href="../static/css/jquery-confirm.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <style type="text/css">
+            .fa-trash-o{
+                    margin-left: 7px;
+                    color: red;
+                    cursor: pointer;     
+            }
+            .fa-trash-o:hover{
+                color: #72afd2;
+            }
+        </style>
+    </head>
+    <body class="skin-black" onload="fetch_data()">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a class="logo">
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                Admin
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                       
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>Admin<i class="caret"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header bg-light-blue">
+                                    <img src="../static/img/avatar3.png" class="img-circle" alt="User Image" />
+                                    
+                                    <p>
+                                        <strong>Admin</strong>
+                                        <br>
+                                        Employee 360
+                                        <small>The Complete Employee Tracking</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                     <div class="user-panel">
+                       <div class="pull-left image">
+                            <img src="../static/img/avatar3.png" class="img-circle" alt="User Image" />
+                        </div>
+                        <div class="pull-left info">
+                            <p>Hello, Admin</p>
+
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
+                    </div>
+                   
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                      <ul class="sidebar-menu">
+                        <li class="active">
+                            <a href="adminindex.html">
+                                <i class="fa fa-home"></i> <span>Home</span>
+                            </a>
+                        </li>
+
+                         <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-building-o"></i>
+                                <span>&nbsp;&nbsp;&nbsp;Hotels</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="add_hotel.html"><i class="fa fa-angle-double-right"></i> Add Hotel</a></li>
+                                <li><a href="view_hotels.html"><i class="fa fa-angle-double-right"></i> View Hotel</a></li>
+                               
+                            </ul>
+                        </li>
+                        
+                         <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-archive"></i>
+                                <span>Department</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="add_department.html"><i class="fa fa-angle-double-right"></i> Add Department</a></li>
+                                <li><a href="view_department.html"><i class="fa fa-angle-double-right"></i> View Department</a></li>
+                               
+                            </ul>
+                        </li>
+                       
+                       
+                    
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-user"></i> <span>Employee</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="add_sales.html"><i class="fa fa-angle-double-right"></i> Add Employee</a></li>
+                                <li><a href="view_employee.html"><i class="fa fa-angle-double-right"></i> View Employee</a></li>
+                            </ul>
+                        </li>
+                       
+                         <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Reports</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                           <ul class="treeview-menu">
+                               <li><a href="admin_view_report.html"><i class="fa fa-angle-double-right"></i>Monthly Report</a></li>
+                                <li><a href="admin_view_report_year.html"><i class="fa fa-angle-double-right"></i>Yearly Report</a></li>
+                                
+                            </ul>
+                        </li>
+                        
+                       
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            
+
+
+ <aside class="right-side">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>REPORT</h1>
+                </section>
+        <!-- Main content -->
+                <section class="content">
+
+        <!-- =========================code for settig calender==========================================-->
+
+                 <div class="row">
+                        
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-blue">
+                                <div class="inner" id="msg">
+                                    <h5>Starting Date</h5>
+                                 <input type="date" class="form-control" placeholder="Enter datee .." id="sdate" name="sdate" />
+                                </div>
+                         </div>
+                        </div><!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-blue">
+                                <div class="inner" id="loc">
+                                    <h5>Ending Date</h5>
+                                  <input type="date" class="form-control" placeholder="Enter datee .." id="edate" name="edate" />
+                                </div>
+                            </div>
+                        </div><!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                           
+                        </div><!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                             <div class="small-box bg-white">
+                                <div class="inner" id="loc">
+                                 <!--  <input type="button" id="btnExport" value="Export" onclick="Export()" class="btn btn-primary" /> -->
+                                 <button id="btnExport" value="Export" onclick="Export()" class="btn btn-primary">Export   <i class="fa fa-download"></i></button>
+                                </div>
+                            </div>
+                                  
+                                
+                        </div><!-- ./col -->
+                          
+                    </div><!-- /.row -->
+  <!-- =========================code for settig calender==========================================-->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box">
+                                <div class="box-header">
+                                   
+                                    <div class="box-tools">
+                                        <div class="input-group">
+                                            <input type="text" name="table_search" id="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /.box-header -->
+                                <div class="box-body table-responsive no-padding" id="tablediv">
+                                    <table class="table table-hover" id="myTableList">
+                                    <thead>
+                                            <th>Hotel Name</th>
+                                            <th>Manager Name</th>
+                                            <th>Event Name</th>
+                                            <th>Event Location</th>
+                                            <th>Client Name</th>
+                                            <th>Task Name</th>
+                                            <th>Employee Name</th>
+                                            <th>Estimation</th>
+                                            <th>Duration</th>
+                                            <th>Status</th>
+
+                                    </thead>
+                                       <!--  <tr>
+                                            <td>AAA</td>
+                                            <td>BBB</td>
+                                            <td>CCC</td>
+                                            <td>DDD</td>
+                                            <td>EEE</td>
+                                            <td>FFF</td>
+                                            <td>GGG</td>
+                                            <td><a href=""><span class="glyphicon glyphicon-trash" style="color:red"></span></a><a href=""><span class="glyphicon glyphicon-edit" style="color:blue"></span></a></td>
+                                        </tr> -->
+
+                                        <tbody id="myTable" class="fill-data">
+                   </tbody>
+                                                                           </table>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                        </div>
+                    </div>
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+
+
+        <!-- jQuery 2.0.2 -->
+        <script src="../static/js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+       <script src="../static/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- AdminLTE App -->
+        <script src="../static/js/AdminLTE/app.js" type="text/javascript"></script>
+        <script type="text/javascript" src="../static/js/jquery-confirm.min.js"></script>
+        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
+        <script src='../static/a076d05399.js'></script>
+
+<script type="text/javascript">
+    
+  function fetch_data(){
+
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+    var sdate = new Date(today.getFullYear(), today.getMonth(), 1); 
+    var stdate = sdate.getFullYear()+'-'+(sdate.getMonth()+1)+'-'+sdate.getDate();
+
+    var syear = sdate.getFullYear();
+     var smonth = (1 + sdate.getMonth()).toString(); smonth = smonth.length > 1 ? smonth : '0' + smonth;
+     var sday = sdate.getDate().toString();
+     sday = sday.length > 1 ? sday : '0' + sday;
+
+     var eyear = today.getFullYear();
+     var emonth = (1 + today.getMonth()).toString(); emonth = emonth.length > 1 ? emonth : '0' + emonth;
+     var eday = today.getDate().toString();
+     eday = eday.length > 1 ? eday : '0' + eday;
+     
+     $("#sdate").val(syear+'-'+smonth+'-'+sday);
+     $("#edate").val(eyear+'-'+emonth+'-'+eday);
+
+    var htmlCodes = "";
+
+    $.ajax({
+      type: "GET",
+      crossDomain: true,
+      url:"http://"+localStorage.getItem("ip")+":5000/task_report_view_admin"+"sdate="+sdate+"&&"+"edate="+edate,
+      success: function (response) {
+          var myObj = response.success;
+          console.log(myObj)
+          var len = Object.keys(myObj).length;
+          var status='';
+          var value = 0;
+          if(myObj == '')
+           { 
+            
+           }else{
+              for (var i = 0; i <len; i++)
+               {
+               
+          htmlCodes+='<tr class="new paginated">'+ 
+                '<td>'+myObj[i].name+'</td>'+
+                '<td>'+myObj[i].man_name+'</td>'+
+                 '<td>'+myObj[i].event_name+'</td>'+
+                
+                 '<td>'+myObj[i].event_location+'</td>'+ 
+                 '<td>'+myObj[i].client_name+'</td>'+
+                  '<td>'+myObj[i].task+'</td>'+     
+                 '<td>'+myObj[i].f_name+" "+myObj[i].l_name+'</td>'+
+                 '<td>'+myObj[i].estimation+'</td>'+
+                 '<td>'+myObj[i].duration+'</td>'+
+                 '<td>'+myObj[i].status+'</td>'+
+             '</tr>'; 
+               }
+            }
+
+                                           
+      $('.fill-data').html(htmlCodes);
+                                            
+
+      // paginate(page); //CALLING PAGINATION FUNCTION
+
+      //RE INITIALISE PAGINATION BUTTON
+      // $('#page-nav').pagination('selectPage', page);
+
+    //  table search code data will stay after re initialize table
+       var value = $("#table_search").val().toLowerCase();
+       if(value != ''){
+           $("#myTableList tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        }
+       },
+         failure: function (response) {
+             alert(" Failed");
+         }
+     });
+
+
+   }
+
+   // $(document).on('click','.deleteBtn',function(){
+   //          alert($(this).data('id'));
+   // });
+
+   $(document).on("keyup","#table_search", function() {
+        var value = $(this).val().toLowerCase();
+        if(value == ''){
+          fetch_data();
+        }
+        $("#myTableList tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        });
+      });
+
+/*-------Method for Ajax calling deleting user-------*/ 
+
+$("#edate").change(function()
+{
+    var sdate=$("#sdate").val();
+    var edate=$("#edate").val();
+    alert(sdate);
+    fetch_date_data(sdate,edate)
+});
+function fetch_date_data(startdate,enddate)
+{
+    var htmlCodes = "";
+
+    $.ajax({
+      type: "GET",
+      crossDomain: true,
+      url:"http://"+localStorage.getItem("ip")+":5000/task_report_view_admin?memid="+localStorage.getItem("logid")+"&&"+"sdate="+startdate+"&&"+"edate="+enddate,
+      success: function (response) {
+          var myObj = response.success;
+          console.log(myObj)
+          var len = Object.keys(myObj).length;
+          var status='';
+          var value = 0;
+          if(myObj == '')
+           { 
+            
+           }else{
+              for (var i = 0; i <len; i++)
+               {
+                var full=myObj[i].f_name+" "+myObj[i].l_name;
+          htmlCodes+='<tr class="new paginated">'+ 
+        '<td>'+myObj[i].name+'</td>'+
+                 '<td>'+myObj[i].event_name+'</td>'+
+                 '<td>'+myObj[i].event_location+'</td>'+ 
+                 '<td>'+myObj[i].client_name+'</td>'+
+                 '<td>'+full+'</td>'+
+                 '<td>'+myObj[i].task+'</td>'+     
+                 '<td>'+myObj[i].estimation+'</td>'+
+                 '<td>'+myObj[i].duration+'</td>'+
+                 '<td>'+myObj[i].status+'</td>'+
+             '</tr>'; 
+               }
+            }
+      $('.fill-data').html(htmlCodes);
+       var value = $("#table_search").val().toLowerCase();
+       if(value != ''){
+           $("#myTableList tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        }
+       },
+         failure: function (response) {
+             alert(" Failed");
+         }
+     });
+
+
+   }
+  
+function Export() {
+
+  //     var options = {};
+  // var pdf = new jsPDF('p', 'pt', 'a4');
+  // pdf.addHTML($("#myTableList"), 15, 15, options, function() {
+  //   pdf.save('pageContent.pdf');
+  // });
+            // html2canvas(document.getElementById('myTableList'), {
+            //     onrendered: function (canvas) {
+            //         var data = canvas.toDataURL();
+            //         var docDefinition = {
+            //             content: [{
+            //                 image: data,
+            //                 width: 500
+            //             }]
+            //         };
+            //         pdfMake.createPdf(docDefinition).download("Table.pdf");
+            //     }
+            // });
+
+             window.open('data:application/vnd.ms-excel,' + encodeURIComponent( $('div[id$=tablediv]').html()));
+    e.preventDefault();
+        }
+
+
+
+</script>
+
+    </body>
+</html>

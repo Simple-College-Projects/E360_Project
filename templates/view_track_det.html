@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Manager | View Tracking details</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- bootstrap 3.0.2 -->
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+       <link href="../static/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+       <link href="../static/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+       <link href="../static/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+       <script src="../static/jquery.min.js"></script>
+       <link rel="stylesheet" href="../static/css/jquery-confirm.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <style type="text/css">
+            .fa-trash-o{
+                    margin-left: 7px;
+                    color: red;
+                    cursor: pointer;     
+            }
+            .fa-trash-o:hover{
+                color: #72afd2;
+            }
+        </style>
+    </head>
+    <body class="skin-black" onload="fetch_count()">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a class="logo">
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+               Manager
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                        
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>Manager <i class="caret"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header bg-light-blue">
+                                    <img src="../static/img/avatar3.png" class="img-circle" alt="User Image" />
+                                    <p>
+                                        <strong>Manager</strong>
+                                        <br>
+                                        Employee 360
+                                        <small>The Complete Employee Tracking</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                     <div class="user-panel">
+                       <div class="pull-left image">
+                            <img src="../static/img/avatar3.png" class="img-circle" alt="User Image" />
+                        </div>
+                        <div class="pull-left info">
+                            <p>Manager</p>
+
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
+                    </div>
+                    <!-- search form -->
+                    
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                     <ul class="sidebar-menu">
+                        <li class="active">
+                            <a href="managerindex.html">
+                                <i class="fa fa-home"></i> <span>Home</span>
+                            </a>
+                        </li>
+
+                         <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-tasks"></i>
+                                <span>Event</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="add_event.html"><i class="fa fa-angle-double-right"></i> Add Event</a></li>
+                                <li><a href="view_event.html"><i class="fa fa-angle-double-right"></i> View Event</a></li>
+                               
+                            </ul>
+                        </li>
+                        
+                         <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-tablet"></i>
+                                <span>Task</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="add_task.html"><i class="fa fa-angle-double-right"></i> Add Task</a></li>
+                                <li><a href="view_task.html"><i class="fa fa-angle-double-right"></i> View Task</a></li>
+                               
+                            </ul>
+                        </li>
+                       
+                       
+                    
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-check-square-o"></i> <span>Assigning</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="add_assigning.html"><i class="fa fa-angle-double-right"></i> Add Assigning</a></li>
+                                <li><a href="view_assigning.html"><i class="fa fa-angle-double-right"></i> View Assigning</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-location-arrow"></i> <span>Tracking</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="view_tracking_mem_details.html"><i class="fa fa-angle-double-right"></i>View Tracking </a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Reports</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="manager_view_report.html"><i class="fa fa-angle-double-right"></i>Monthly Report</a></li>
+                                <li><a href="manager_view_report_year.html"><i class="fa fa-angle-double-right"></i>Yearly Report</a></li>
+                            </ul>
+                        </li>
+                        
+                       
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                       
+
+                    </h1>
+
+                </section>
+
+     <!-- Main content -->
+                <section class="content">
+                           <div class="row">
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-aqua">
+                                <div class="inner" id="call">
+                                    <h3 id="callcount">
+                                        0
+                                    </h3>
+                                    <p>
+                                        CALL
+                                    </p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-mobile"></i>
+                                </div>
+                               
+                            </div>
+                        </div><!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-green">
+                                <div class="inner" id="msg">
+                                    <h3 id="messagecount">
+                                        0
+                                    </h3>
+                                    <p>
+                                        MESSAGE
+                                    </p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                               
+                            </div>
+                        </div><!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-yellow">
+                                <div class="inner" id="location">
+                                    <h3 id="locationcount">
+                                       0
+                                    </h3>
+                                    <p>
+                                        LOCATION
+                                    </p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-map-marker "></i>
+                                </div>
+                               
+                            </div>
+                        </div><!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-red">
+                                <div class="inner" id="browse">
+                                    <h3 id="historycount">
+                                        0
+                                    </h3>
+                                    <p>
+                                        BROWSING HISTORY
+                                    </p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-globe"></i>
+                                </div>
+                               
+                            </div>
+                        </div><!-- ./col -->
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box">
+                                <div class="box-header">
+                                   
+                                    <div class="box-tools">
+                                        <div class="input-group">
+                                            <input type="text" name="table_search" id="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /.box-header -->
+                                
+                                <div class="box-body table-responsive no-padding">
+
+
+                                     <table class="table table-hover" id="myTableList">
+                                    
+                                    
+                                    </table>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                        </div>
+                    </div>
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+
+
+        <!-- jQuery 2.0.2 -->
+        <script src="../static/js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+       <script src="../static/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- AdminLTE App -->
+        <script src="../static/js/AdminLTE/app.js" type="text/javascript"></script>
+        <script type="text/javascript" src="../static/js/jquery-confirm.min.js"></script>
+
+<script type="text/javascript">
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+$("#call").click(function()
+{
+    fetch_data("call")
+});
+$("#msg").click(function()
+{
+    fetch_data("message")
+});
+$("#location").click(function()
+{
+    fetch_data("location")
+});
+$("#browse").click(function()
+{
+    fetch_data("browse")
+});
+    
+  function fetch_data(type){
+
+    var htmlCodes = "";
+
+    $.ajax({
+      type: "GET",
+      crossDomain: true,
+      url:"http://"+localStorage.getItem("ip")+":5000/view_tracking?empid="+getUrlVars()["id"]+"&&"+"type="+type,
+      success: function (response) {
+          var myObj = response.success;
+          console.log(myObj)
+          var len = Object.keys(myObj).length;
+          var status='';
+          var value = 0;
+          var len=myObj.length;
+          console.log("lll",)
+          if(len==0)
+           { 
+               $.alert({
+                           title: ' TACKING HISTORY! ',
+                            content: 'Warning! No Data Found.',
+                      });
+           }
+           else{
+
+                switch(type)
+                {
+                    case "call"  :htmlCodes+='<thead>'+'<tr>'+
+                                    '<th>Name</th>'+
+                                    '<th>Number</th>'+
+                                     '<th>Status</th>'+
+                                     '<th>Duration</th>'+
+                                     '</tr></thead><tbody id="myTable" class="fill-data">';
+                                      for (var i = 0; i <len; i++)
+                                       {
+                                        
+                                          htmlCodes+='<tr class="new paginated">'+ 
+                                         '<td>'+myObj[i].con_name+'</td>'+
+                                         '<td>'+myObj[i].number+'</td>'+ 
+                                         '<td>'+myObj[i].status+'</td>'+
+                                         '<td>'+myObj[i].duration+'</td>'+
+                                         '</tr>'; 
+                                       }
+                                      htmlCodes+='</tbody>' ;
+                                      break;
+
+                    case "message"  :htmlCodes+='<thead>'+'<tr>'+
+                                     '<th>Name</th>'+
+                                     '<th>Message</th>'+
+                                     '<th>Number</th>'+
+                                     '<th>Status</th>'+
+                                     '</tr></thead><tbody id="myTable" class="fill-data">';
+                                      for (var i = 0; i <len; i++)
+                                       {
+                                        
+                                          htmlCodes+='<tr class="new paginated">'+ 
+                                         '<td>'+myObj[i].name+'</td>'+
+                                         '<td>'+myObj[i].message+'</td>'+ 
+                                         '<td>'+myObj[i].number+'</td>'+
+                                         '<td>'+myObj[i].status+'</td>'+
+                                         '</tr>'; 
+                                       }
+                                      htmlCodes+='</tbody>' ;
+                                      break;
+
+                     case "location"  :htmlCodes+='<thead>'+'<tr>'+
+                                  '<th>Longititude</th>'+
+                                    '<th>Latitude</th>'+
+                                     '<th>Place</th>'+
+                                     '<th>Locality</th>'+
+                                     '</tr></thead><tbody id="myTable" class="fill-data">';
+                                      for (var i = 0; i <len; i++)
+                                       {
+                                        
+                                          htmlCodes+='<tr class="new paginated">'+ 
+                                         '<td>'+myObj[i].longititude+'</td>'+
+                                         '<td>'+myObj[i].latitude+'</td>'+ 
+                                         '<td>'+myObj[i].place+'</td>'+
+                                         '<td>'+myObj[i].locality+'</td>'+
+                                         '</tr>'; 
+                                       }
+                                      htmlCodes+='</tbody>' ;
+                                      break;
+                    
+                     case "browse"  :htmlCodes+='<thead>'+'<tr>'+
+                                  '<th>WebSite address</th>'+
+                                    '<th>date</th>'+
+                                     '<th>time</th>'+
+                                     '</tr></thead><tbody id="myTable" class="fill-data">';
+                                      for (var i = 0; i <len; i++)
+                                       {
+                                        
+                                          htmlCodes+='<tr class="new paginated">'+ 
+                                         '<td>'+myObj[i].url+'</td>'+
+                                         '<td>'+myObj[i].date+'</td>'+ 
+                                         '<td>'+myObj[i].time+'</td>'+
+                                         '</tr>'; 
+                                       }
+                                      htmlCodes+='</tbody>' ;
+                                      break;
+                }
+              
+            }
+      $('#myTableList').html(htmlCodes);
+
+      // paginate(page); //CALLING PAGINATION FUNCTION
+
+      //RE INITIALISE PAGINATION BUTTON
+      // $('#page-nav').pagination('selectPage', page);
+
+    //  table search code data will stay after re initialize table
+       var value = $("#table_search").val().toLowerCase();
+       if(value != ''){
+           $("#myTableList tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        }
+       },
+         failure: function (response) {
+             alert(" Failed");
+         }
+     });
+
+
+   }
+
+   // $(document).on('click','.deleteBtn',function(){
+   //          alert($(this).data('id'));
+   // });
+
+   $(document).on("keyup","#table_search", function() {
+        var value = $(this).val().toLowerCase();
+        if(value == ''){
+          fetch_data();
+        }
+        $("#myTableList tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        });
+      });
+
+/*-------Method for Ajax calling deleting user-------*/ 
+
+function fetch_count()
+{
+ $.ajax({
+      type: "GET",
+      crossDomain: true,
+      url:"http://"+localStorage.getItem("ip")+":5000/count_history?empid="+getUrlVars()["id"],
+      success: function (response) {
+        console.log("c",response['call']);
+        console.log("m",response['message']);
+        console.log("l",response['location']);
+        console.log("b",response['browse']);
+             $('#callcount').html(response['call']);
+             $('#messagecount').html(response['message']);
+             $('#locationcount').html(response['location']);
+             $('#historycount').html(response['browse']);
+        },
+         failure: function (response) {
+             alert(" Failed");
+         }
+     });
+}
+</script>
+</body>
+</html>

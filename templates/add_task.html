@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Manager |Add Tasks</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- bootstrap 3.0.2 -->
+       <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+      <link href="../static/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+               <link href="../static/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+     <link href="../static/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+         <script>
+            function valid()
+            {
+                if(document.getElementById("eid").value=="-1")
+                {
+                    alert("Select The Event Name");
+                    document.getElementById("eid").focus();
+                    return false;
+                }
+
+              
+                if(document.getElementById("tname").value=="")
+                {
+                    alert("Select The Task Name");
+                    document.getElementById("tname").focus();
+                    return false;
+                }
+                  if(document.getElementById("tdesc").value=="")
+                {
+                    alert("Enter The Description");
+                    document.getElementById("tdesc").focus();
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </head>
+    </head>
+    <body class="skin-black" onload="fetch_data()">
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a class="logo">
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                 Manager
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                        
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>Manager <i class="caret"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header bg-light-blue">
+                                    <img src="../static/img/avatar3.png" class="img-circle" alt="User Image" />
+                                    <p>
+                                        <strong>Manager</strong>
+                                        <br>
+                                        Employee 360
+                                        <small>The Complete Employee Tracking</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                       <div class="pull-left image">
+                            <img src="../static/img/avatar3.png" class="img-circle" alt="User Image" />
+                        </div>
+                        <div class="pull-left info">
+                            <p>Hello, Manager</p>
+
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
+                    </div>
+                    <!-- search form -->
+                     
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li class="active">
+                            <a href="managerindex.html">
+                                <i class="fa fa-home"></i> <span>Home</span>
+                            </a>
+                        </li>
+
+                         <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-tasks"></i>
+                                <span>Event</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="add_event.html"><i class="fa fa-angle-double-right"></i> Add Event</a></li>
+                                <li><a href="view_event.html"><i class="fa fa-angle-double-right"></i> View Event</a></li>
+                               
+                            </ul>
+                        </li>
+                        
+                         <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-tablet"></i>
+                                <span>Task</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="add_task.html"><i class="fa fa-angle-double-right"></i> Add Task</a></li>
+                                <li><a href="view_task.html"><i class="fa fa-angle-double-right"></i> View Task</a></li>
+                               
+                            </ul>
+                        </li>
+                       
+                       
+                    
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-check-square-o"></i> <span>Assigning</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="add_assigning.html"><i class="fa fa-angle-double-right"></i> Add Assigning</a></li>
+                                <li><a href="view_assigning.html"><i class="fa fa-angle-double-right"></i> View Assigning</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-location-arrow"></i> <span>Tracking</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="view_tracking_mem_details.html"><i class="fa fa-angle-double-right"></i>View Tracking </a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Reports</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="manager_view_report.html"><i class="fa fa-angle-double-right"></i>Monthly Report</a></li>
+                                <li><a href="manager_view_report_year.html"><i class="fa fa-angle-double-right"></i>Yearly Report</a></li>
+                            </ul>
+                        </li>
+                        
+                       
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>ADD TASK </h1>
+                </section>
+
+                <!-- Main content -->
+                 <section class="content">
+                    <div class="row">
+                        <form role="form" action="http://192.168.42.97:5000/taskreg" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="memid" id="memid">
+                        <!-- left column -->
+                        <div class="col-md-6">
+                            <!-- general form elements -->
+                            <div class="box box-primary">
+
+                                <!-- form start -->
+                                
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Event Name</label>
+                                             <select class="form-control" id="eid" name="eid">
+                                            </select>
+                                        </div>
+                                       <div class="form-group">
+                                            <label for="exampleInputEmail1">Task Name</label>
+                                            <input type="text" class="form-control"  placeholder="Enter Task name" id="tname" name="tname">
+                                        </div>
+                                       <div class="form-group">
+                                        <textarea class="form-control" rows="3" placeholder="Enter ..."  id="tdesc" name="tdesc"></textarea>
+                                       </div>
+                                       
+                                        <div class="box-footer">
+                                        <button type="submit" class="btn btn-primary" onclick="return valid()">Submit</button>
+                                       </div>
+                                        
+                                         
+                                 </div><!-- /.box-body -->
+                                </div><!-- /.box -->
+
+                            <!-- Form Element sizes -->
+
+
+
+
+                        </div>
+                        </form>
+                    </div>   <!-- /.row -->
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+        <!-- jQuery 2.0.2 -->
+        <script src="../static/js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="../static/js/bootstrap.min.js" type="text/javascript"></script>
+        <!-- AdminLTE App -->
+             <script src="../static/js/AdminLTE/app.js" type="text/javascript"></script>
+
+   
+<script type="text/javascript">
+function fetch_data()
+{
+    var data="";
+    var memid= localStorage.getItem("logid");
+    $("#memid").val(memid);
+    $.ajax({
+      type: "GET",
+      crossDomain: true,
+      url:"http://"+localStorage.getItem("ip")+":5000/viewevents?memid="+memid,
+      success: function (response) {
+          var myObj = response.success;
+          console.log(myObj);
+          var len = Object.keys(myObj).length;
+          var status='';
+          var value = 0;
+          if(myObj == '')
+           { 
+            
+           }
+           else
+           {
+                var len = Object.keys(myObj).length;
+                var status='';
+                var value = 0;
+                var data=' <option value="-1">Please select Event</option>';
+                for (var i = 0; i <len; i++)
+                {
+                     
+                   data+='<option value="'+myObj[i].id+'">'+myObj[i].event_name+'</option>';
+                   
+                }
+                $('#eid').html(data);
+            }
+          },
+         failure: function (response) {
+             alert(" Failed");
+         }
+     });
+   
+   }
+</script>
+</body>
+</html>
+
+
+
+
+
+

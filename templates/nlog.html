@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>E360 | Login</title>
+
+
+   <link href="../static/bootstrap.min.css" rel="stylesheet" type="text/css" />
+           <script src="../static/jquery.min.js"></script>
+<!--  <script src="/Newfolder/jquery-1.11.1.min.js"></script> -->
+<script src="../static/bootstrap.min.js" type="text/javascript"></script>
+
+<link href="../static/style.css" rel="stylesheet" type="text/css" />
+<!-- <script>
+
+function validate()
+{
+  if(document.getElementById("login").value=="")
+  {
+    alert("User name must be filled...")
+    document.getElementById("login").focus();
+    return false;
+  }
+  return true;
+}
+
+
+</script> -->
+
+
+</head>
+<body onload="fetch_ip()">
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://www.b-cube.in/wp-content/uploads/2014/05/aditya-300x177.jpg" id="icon" alt="User Icon" />
+      <h1>EMPLOYEE 360</h1>
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="username">
+      <input type="password" id="password" class="fadeIn third" name="login" placeholder="password">
+      <input type="button" class="fadeIn fourth" value="Log In" id="logi" >
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Go to the Site</a>
+    </div>
+
+  </div>
+</div>
+
+<script  type="text/javascript" charset="utf-8" async defer>
+
+            $(document).on('click', '#logi', function () {
+
+                var uu = $("#login").val();
+                var pp = $("#password").val();
+
+
+                    $.getJSON('http://'+localStorage.getItem("ip")+':5000/login', {
+                        'un': uu,
+                        'pw': pp
+
+                    }, function (data) {
+                      console.log(data)
+                         var tp = data['type']
+                         var c=data['status']
+                         var log_id=data['id']
+                        
+
+                         if (c == "no") {
+                             alert("Invalid USERNAME or PASSWORD");
+                         }
+                         else if (tp == "admin") {
+                         localStorage.setItem("logid",log_id)
+                         window.location.href = "adminindex.html"
+                         }
+                         else if (tp == "Manager") {
+                         localStorage.setItem("logid",log_id)
+                             window.location.href = "managerindex.html"
+                         }
+
+                    });
+
+            });
+
+  function fetch_ip(){
+    localStorage.setItem("ip","192.168.42.97");
+  }
+
+  </script>
+
+</body>
+</html>
+
